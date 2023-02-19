@@ -36,8 +36,20 @@
         </div>
         <div class="col-12 col-sm-6">
           <h2 class="mb-3">Sélection ({{ selectedTags.length }})</h2>
-          <ul class="list-group list-group-numbered">
-            <li v-for="tag in selectedTags" key="tag" class="list-group-item">{{ tag }}</li>
+          <ul class="list-group">
+            <li
+              v-for="(tag, index) in selectedTags"
+              key="tag"
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              {{ tag }}
+              <button
+                type="button"
+                @click="selectedTags.splice(index, 1)"
+                class="btn-close"
+                aria-label="Retirer"
+              ></button>
+            </li>
           </ul>
         </div>
       </div>
